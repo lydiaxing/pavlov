@@ -78,12 +78,12 @@ $(function() {
       });
       snapshot.get_blob(function(blob) {
         $.ajax({
-          url: "",
+          url: API_URL,
           beforeSend: function(xhrObj) {
             // Request headers
-            xhrObj.setRequestHeader("Prediction-Key", "");
+            xhrObj.setRequestHeader("Prediction-Key", PREDICTION_KEY);
             xhrObj.setRequestHeader("Content-Type", "application/octet-stream");
-            xhrObj.setRequestHeader("Prediction-key", "");
+            xhrObj.setRequestHeader("Prediction-key", PREDICTION_KEY);
           },
           type: "POST",
           data: blob,
