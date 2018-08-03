@@ -1,0 +1,103 @@
+<div class="container main">
+  <div class="settings-container">
+    <div id="camera">
+      <div class="placeholder">
+        Your browser does not support camera access.<br> We recommend
+        <a href="https://www.google.com/chrome/" target="_blank">Chrome</a> &mdash; modern, secure, fast browser from Google.<br> It's free.
+      </div>
+    </div><br>
+    <div id="confidence">Press start to begin tracking.</div>
+    <button id="start" class="train_button">Start</button>
+    <button id="pause" class="train_button">Pause</button>
+  </div>
+
+  <div class="training-controls-container">
+    <div class="dataset-container">
+      <div id="good_dataset" class="shadow-sm">
+        <div class="placeholder">Your training images will appear here...press capture!</div>
+      </div>
+      <button id="good_example" class="train_button">Capture normal example</button>
+    </div>
+
+    <div class="dataset-container">
+      <div id="bad_dataset" class="shadow-sm">
+        <div class="placeholder">Your training images will appear here...press capture!</div>
+      </div>
+      <button id="bad_example" class="train_button">Capture bad habit example</button>
+    </div>
+
+    <div class="configure-container">
+      <button id="settings" class="train_button" data-toggle="modal" data-target="#settingsModal">
+        <img src="/images/settings.png"/>
+      </button>
+
+      <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog"aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Settings</h5>
+            </div>
+            <div class="modal-body">
+              Bad habit alarm noise: <br>
+              <div class="row">
+                <div class="col-sm">
+                  <input type="radio" name="noise" value="bells" checked>Bells<br>
+                  <input type="radio" name="noise" value="waterfall">Waterfall<br>
+                  <input type="radio" name="noise" value="scream">Human Screams
+                </div>
+                <div class="col-sm">
+                  <input type="radio" name="noise" value="music">Music Box<br>
+                  <input type="radio" name="noise" value="zymbal">Tibetan Zymbal<br>
+                  <input type="radio" name="noise" value="guns">9mm Gunshot
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="changeNoise" class="btn btn-secondary" data-dismiss="modal">Save Changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button id="train" class="train_button" data-toggle="modal" data-target="#loadingModal">Train</button>
+      <div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Training...</h5>
+            </div>
+            <div class="modal-body">
+              <div class="loader"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Success!</h5>
+            </div>
+            <div class="modal-body">
+              <img src="https://s3-ap-southeast-1.amazonaws.com/gw-thinksaas-deploy/website/images/checkmark-gif.gif"
+                   style="height:80px;width:80px"
+              />
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Great!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<audio id="alarm" loop preload="auto">
+  <source
+    type="audio/mpeg"
+    src="http://soundbible.com/mp3/Ship_Bell-Mike_Koenig-1911209136.mp3"/>
+</audio>
